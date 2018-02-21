@@ -1,21 +1,20 @@
 const path = require("path");
 const webpack = require("webpack");
+const nodeExternals = require("webpack-node-externals");
 
 module.exports = {
     context: path.resolve(__dirname, "routes"),
 
-    entry: {
-        indexRoute: "./index.js"
-    },
+    entry: "./index.js",
 
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "[name].js",
+        filename: "indexRoute.js",
         libraryTarget: "commonjs2"
     },
 
     module: {
-        loaders: [
+        rules: [
             {
                 use: "babel-loader",
                 test: /\.js$/,
@@ -24,5 +23,7 @@ module.exports = {
         ]
     },
 
-    target: "node"
+    target: "node",
+
+    externals: [nodeExternals()]
 };

@@ -22,7 +22,10 @@ class App extends React.Component {
             <div>
                 <h1>Hi</h1>
                 <button onClick={this.handleClick}>{this.state.count}</button>
-                <LoadableLongList length={5} />
+
+                { this.state.count > 0 &&
+                    <LoadableLongList length={5} />
+                }
             </div>
         )
     }

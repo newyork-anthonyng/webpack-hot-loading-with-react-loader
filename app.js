@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const Loadable = require("react-loadable");
 
 if (process.env.NODE_ENV === "dev") {
     const webpack = require("webpack");
@@ -17,6 +18,8 @@ if (process.env.NODE_ENV === "dev") {
     app.use(require("./dist/indexRoute").default);
 }
 
-app.listen(3000, () => {
-    console.log("Server listening on 3000");
-})
+Loadable.preloadAll().then(() => {
+    app.listen(3000, () => {
+        console.log("Server listening on 3000");
+    })
+});
