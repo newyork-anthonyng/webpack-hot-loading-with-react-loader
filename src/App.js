@@ -1,4 +1,5 @@
 import React from "react";
+import LoadableLongList from "./LoadableLongList";
 import { hot } from "react-hot-loader";
 
 class App extends React.Component {
@@ -21,6 +22,7 @@ class App extends React.Component {
             <div>
                 <h1>Hi</h1>
                 <button onClick={this.handleClick}>{this.state.count}</button>
+                <LoadableLongList length={5} />
             </div>
         )
     }
