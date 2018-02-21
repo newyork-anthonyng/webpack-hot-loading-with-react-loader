@@ -1,4 +1,3 @@
-require("babel-register");
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -15,7 +14,7 @@ if (process.env.NODE_ENV === "dev") {
 } else {
     app.use(express.static(path.resolve(__dirname, "dist")));
     
-    app.use(require("./routes/index").default);
+    app.use(require("./dist/indexRoute").default);
 }
 
 app.listen(3000, () => {
