@@ -19,6 +19,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
+                <h1>Hi</h1>
                 <button onClick={this.handleClick}>{this.state.count}</button>
             </div>
         )
